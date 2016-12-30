@@ -1,0 +1,51 @@
+<section id="projects" class="three">
+  <div class="container">
+
+    <header>
+      <h2>Projects</h2>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Detail</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Active</th>
+          <th>Seq</th>
+          <th>Projectmanager</th>
+          <th>Client</th>
+          <th>Members</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.name %></td>
+          <td><%= project.detail %></td>
+          <td><%= project.start_date %></td>
+          <td><%= project.end_date %></td>
+          <td><%= project.active %></td>
+          <td><%= project.seq %></td>
+          <td><%= project.projectmanager.name %></td>
+          <td><%= project.client.name %></td>
+          <td><%= project.users.each do |u| %>
+            <p><%= u.name%></p>
+            <%end%>
+          </td>
+
+          <td><%= link_to 'Show', project %></td>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Project', new_project_path %>
+  </div>
+</section>

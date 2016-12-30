@@ -1,0 +1,17 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.messagebox{
+	position: fixed;
+	top:0;
+}
+.messagebox p{
+	padding-left:20px; 
+}
+.messagebox p.alert{
+	color: #db3236;	
+}
+.messagebox p.notice{
+	color: black;
+}
