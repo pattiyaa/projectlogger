@@ -1,4 +1,5 @@
-<%= form_for(client) do |f| %>
+<%= semantic_form_for(client) do |f| %>
+
   <% if client.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
@@ -10,33 +11,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contactperson %>
-    <%= f.text_field :contactperson %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telephone %>
-    <%= f.text_field :telephone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_area :address %>
-  </div>
-
+   <div class="form-inputs">
+   <%= f.input :name %>
+   <%= f.input :contactperson, label: 'Contact Person' %>
+   <%= f.input :telephone , as: :phone %>
+   <%= f.input :email , as: :email %>
+   <%= f.input :address, input_html:{rows: '2'} %>
+   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>

@@ -15,11 +15,11 @@
   <%= f.input :seq %>
   <%= f.input :name %>
   <%= f.input :detail, input_html:{ rows: '5'} %>
+  <%= f.input :active,as: :toggleswitch, label: 'Active'%>
   <%= f.input :start_date, :as => :date_picker %>
   <%= f.input :end_date, :as => :date_picker %>
-  <%= f.input :active,as: :toggleswitch, label: 'Active'%>
-  <%= f.input :projectmanager_id,as: :select, label: 'Project manager',:collection => User.pluck(:name, :id),:prompt => "Please select" %>
   <%= f.input :client_id,as: :select, label: 'Customer',:collection => Client.pluck(:name, :id),:prompt => "Please select" %>
+  <%= f.input :projectmanager_id,as: :select, label: 'Project manager',:collection => User.pluck(:name, :id),:prompt => "Please select" %>
   <%= f.input :user_ids,as: :select,:input_html => { :multiple => true }, label: 'Members',:collection => User.pluck(:name, :id)%>
   </div>
   <div class="actions">

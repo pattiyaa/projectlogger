@@ -18,7 +18,7 @@
 						<ul class="icons">
 							<% if user_signed_in? && !current_user.blank? %>
 							<li>
-							<%= link_to destroy_user_session_path, :method => :destroy do %>
+							<%= link_to destroy_user_session_path  do %>
 								<i class="fa fa-sign-out" aria-hidden="true"></i>
 							<%end%>
 							</li>
