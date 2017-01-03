@@ -56,11 +56,11 @@
 				$nav_a
 					.scrolly()
 					.on('click', function(e) {
-
+						
 						var t = $(this),
 							href = t.attr('href');
 
-						if (href[0] != '#')
+						if ((href[0] != '#') && (href.slice(0,2) != '/#'))
 							return;
 
 						e.preventDefault();

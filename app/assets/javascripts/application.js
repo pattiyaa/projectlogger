@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
-//= require_tree .
+
 //= require main
+//= require input/file_input
+//= require input/toggleswitch_input
+//= require flatpickr/dist/flatpickr.min

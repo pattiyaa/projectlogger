@@ -1,46 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-3 headertitle">
+  <p id="notice"><%= notice %></p>
+  <header>
+  <% if @project.projectmanager == current_user %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+  <% end%>
+    <div class="content">
+      <h2>
+        <%= @project.name %>
+      </h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+      <p>
+        <%= @project.detail %>
+      </p>
+    </div>
+    <div class="row small">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div>
+          <strong>Duration:</strong>  <%= @project.start_date.strftime(t('date.formats.default')) %> to <%= @project.end_date.strftime(t('date.formats.default'))  %>
+        </div>
+        <div>
+          <strong>Project manager:</strong> <%= @project.projectmanager.name if @project.projectmanager.present?%>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div><strong>Client:</strong> <%= @project.client.name if @project.client.present? %> </div>
+        <div><strong>Location:</strong> <%= @project.client.address if @project.client.present? %></div> 
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div><strong>Contact person:</strong>
+          <%= @project.client.contactperson if @project.client.present? %>
+        </div> 
+        <div><strong>Telephone:</strong>
+          <%= @project.client.telephone if @project.client.present? %>
 
-<p>
-  <strong>Detail:</strong>
-  <%= @project.detail %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @project.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @project.end_date %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @project.active %>
-</p>
-
-<p>
-  <strong>Seq:</strong>
-  <%= @project.seq %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.projectmanager.name %>
-</p>
-
-<p>
-  <strong>Client:</strong>
-  <%= @project.client.name %>
-</p>
+        </div> 
+        <div><strong>email:</strong>
+          <%= @project.client.email if @project.client.present? %>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="three">
+    <h4>Members</h4>
+    <%= render  'colleagues/list'  ,colleagues: @project.users%>
+  </div>
 
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  
+</div>

@@ -1,0 +1,31 @@
+<div class="row ">
+      <% projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card project">
+          <div class=" card-block">
+            <h4 class="card-title"><%= link_to project.name, project %> <% if project.active == false%>(Inactive)<%end%></h4>
+            <p class="card-text"><%= project.detail %><br/>
+              <small class="text-muted">
+              Start date: &nbsp <%= project.start_date.strftime(t('date.formats.default'))  %><br/>
+              End date: &nbsp <%= project.end_date.strftime(t('date.formats.default'))  %><br/>
+              Customer: &nbsp <%= project.client.name if project.client.present? %><br/>
+              Location: &nbsp <%= project.client.address if project.client.present? %><br/>
+              <% if project.projectmanager != current_user %>
+              Project manager: <%= project.projectmanager.name%><br/>
+              <%end%>
+              Members: <% project.users.each do |u| %>
+                        <%= u.name%> <br/>
+                        <%end%>
+            </small>
+            </p>
+          </div>
+          <% if project.projectmanager == current_user %>
+          <div class="card-block">
+            <%= link_to 'Edit', edit_project_path(project) %> &nbsp
+            <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </div>
+          <%end%>
+        </div>
+      </div>
+      <% end %>
+    </div>

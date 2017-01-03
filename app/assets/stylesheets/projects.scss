@@ -1,3 +1,31 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.card.project {
+	text-align: left;
+}
+.card.project  .card-title{
+	font-weight: bold;
+	
+}
+.card.project .card-text{
+	font-size: 0.7em;
+
+}
+.card.project .card-text small li{
+	font-size: 80%;
+}
+.header.title .small{
+	font-size: 70%;
+}
+.card.colleague{
+	padding: 0;
+}
+.card.colleague div.card-block{
+	padding: 0 1.25em 0.25em 1.25em;
+	text-align: left;
+}
+.card.colleague div.card-block small{
+	font-size: 75%;
+
+}

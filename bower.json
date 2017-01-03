@@ -1,0 +1,20 @@
+{
+  "name": "projectlog",
+  "homepage": "https://github.com/pattiyaa/projectlogger",
+  "authors": [
+    "pattiyaa <pattiyaa@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flatpickr": "flatpickr-calendar#^2.2.4"
+  }
+}

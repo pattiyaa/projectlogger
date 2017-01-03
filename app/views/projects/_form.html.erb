@@ -1,4 +1,5 @@
-<%= form_for(project) do |f| %>
+
+<%= semantic_form_for(project) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,55 +11,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-inputs">
+  <%= f.input :seq %>
+  <%= f.input :name %>
+  <%= f.input :detail, input_html:{ rows: '5'} %>
+  <%= f.input :start_date, :as => :date_picker %>
+  <%= f.input :end_date, :as => :date_picker %>
+  <%= f.input :active,as: :toggleswitch, label: 'Active'%>
+  <%= f.input :projectmanager_id,as: :select, label: 'Project manager',:collection => User.pluck(:name, :id),:prompt => "Please select" %>
+  <%= f.input :client_id,as: :select, label: 'Customer',:collection => Client.pluck(:name, :id),:prompt => "Please select" %>
+  <%= f.input :user_ids,as: :select,:input_html => { :multiple => true }, label: 'Members',:collection => User.pluck(:name, :id)%>
   </div>
-
-  <div class="field">
-    <%= f.label :detail %>
-    <%= f.text_area :detail %>
-  </div>
-
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= f.label :seq %>
-    <%= f.number_field :seq %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :name,{ :prompt => 'Please select one' } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :client_id %>
-    <%= f.collection_select :client_id, Client.all, :id, :name,{ :prompt => 'Please select one' } %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Member' %>
-   
-     <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
- 
-  </div>
- 
-
   <div class="actions">
     <%= f.submit %>
   </div>

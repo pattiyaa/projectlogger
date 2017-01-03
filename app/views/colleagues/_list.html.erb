@@ -1,0 +1,26 @@
+<div class="card-deck-wrapper">
+	<div class="card-deck">
+		<% colleagues.each do |colleague| %>
+		 <div class="card colleague col-xs-12 col-sm-6 col-md-4">
+		    <div class = "image featured"  >
+            <img class="card-img-top img-fluid"  src=<%= colleague.image.url%> alt="<%= colleague.name%>" />
+            </div>
+            <div class="card-block">
+            	
+			    <p class="card-title"><%= colleague.name%></p>
+			   
+			    
+			    <p class="card-text">
+			    	
+			    		<small class="text-muted"><%= colleague.title %></small> <br/>
+			    	
+			    		<small class="text-muted">email: <%= colleague.email %></small><br/>
+			    		<small class="text-muted">telephone: <%= colleague.telephone %></small>
+			    	
+			    </p>
+			</div>
+          </div>
+        <%end%>
+         
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<% if user_signed_in? && !current_user.blank? %>
+<span class="image avatar48"><%= link_to cl_image_tag(current_user.image, :gravity=>"north", :width=>115, :height=>115, :crop=>"thumb"), edit_user_registration_path %></span>
+<h1 id="title"><%=  current_user.name %></h1>
+<p><%=  current_user.title %></p>
+<% else %>
+<%= link_to  new_user_session_path ,data: { modal: true} do%>
+	<span class=""><i class="fa fa-user fa-3x"></i></span>
+	<h1 id="title"><%=t(:signin)%></h1>
+<%end%>
+<% end %>

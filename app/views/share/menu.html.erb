@@ -1,0 +1,25 @@
+<!-- Nav -->
+<nav id="nav">
+<!--
+
+	Prologue's nav expects links in one of two formats:
+
+	1. Hash link (scrolls to a different section within the page)
+
+	   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+	2. Standard link (sends the user to another page/site)
+
+	   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+	-->
+	<ul>
+	    <%= nav_link t('menu.home'),root_path+ '#top' ,'icon fa-home' %>
+	    <%= nav_link t('menu.workflow'),root_path+ '#workflow' ,'icon fa-bullseye' %>
+	    <%= nav_link t('menu.projects'),projects_path ,'icon fa-th' %>
+	    <%= nav_link t('menu.colleague'),colleagues_path ,'icon fa-users' %>
+	    <%= nav_link t('menu.customers'),'#' ,'icon fa-user-secret' %>
+	    <%= nav_link t('menu.contact'),'#' ,'icon fa-envelope' %>
+
+	</ul>
+</nav>

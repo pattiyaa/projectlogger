@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    
+    @projects = Project.where(projectmanager: current_user.id)
+    
+    @paticipatedprojects = Project.includes(:users).where(users: {id: current_user}, active: true)
   end
 
   # GET /projects/1
@@ -15,6 +18,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.projectmanager = current_user
   end
 
   # GET /projects/1/edit
@@ -69,6 +73,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :detail, :start_date, :end_date, :active, :seq, :user_id, :client_id, {:user_ids => []})
+      params.require(:project).permit(:name, :detail, :start_date, :end_date, :active, :seq, :projectmanager_id, :client_id, {:user_ids => []})
     end
 end

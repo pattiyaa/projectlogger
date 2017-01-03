@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  date:
+    formats:
+      default: "%a, %d-%b-%Y"
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      only_time: "%H:%M:%S %z"
+  menu:
+    home: "Intro"
+    workflow: "Workflow"
+    projects: "Projects"
+    colleague: "Colleague"
+    customers: "Customers"
+    contact: "Contact"
