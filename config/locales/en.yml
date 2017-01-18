@@ -23,10 +23,11 @@ en:
   date:
     formats:
       default: "%a, %d-%b-%Y"
+      short: "%d-%m-%Y"
   time:
     formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
-      only_time: "%H:%M:%S %z"
+      default: "%a, %d %b %Y %H:%M"
+      only_time: "%H:%M"
   menu:
     home: "Intro"
     workflow: "Workflow"

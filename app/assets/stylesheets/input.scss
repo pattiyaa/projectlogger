@@ -11,3 +11,35 @@ form  .fieldright{
 width: 72%;
 float:left;
 }
+.formtastic .input {
+    margin:0;
+}
+.formtastic .input select,
+.formtastic .input textarea,
+.formtastic .input input{
+    width: 72%;
+    padding: 0.4em 1em 0.4em 1em;
+}
+.formtastic .input div{
+	border: none;
+    box-shadow: none;
+}
+.formtastic .input .cke_inner{
+	overflow: hidden;
+	border: 1px solid #b6b6b6;
+}
+
+.modal-header h4{
+    font-weight: bold;
+}
+.modal-header .close{
+    float:right;
+    padding: 0.2em !important;
+}
+.modal-body small{
+    font-size: 75%;
+}
+.modal-body .container p{
+    margin:0;
+
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103052032) do
+ActiveRecord::Schema.define(version: 20170113023742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,22 @@ ActiveRecord::Schema.define(version: 20170103052032) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.string   "contactperson"
@@ -54,6 +70,36 @@ ActiveRecord::Schema.define(version: 20170103052032) do
     t.text     "address"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.datetime "logdate"
+    t.string   "data"
+    t.integer  "logperson_id"
+    t.integer  "project_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["logperson_id"], name: "index_logs_on_logperson_id", using: :btree
+    t.index ["project_id"], name: "index_logs_on_project_id", using: :btree
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "title"
+    t.string   "data"
+    t.integer  "logger_id"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.datetime "meetingdate"
+    t.index ["logger_id"], name: "index_meetings_on_logger_id", using: :btree
+    t.index ["project_id"], name: "index_meetings_on_project_id", using: :btree
+  end
+
+  create_table "meetings_users", id: false, force: :cascade do |t|
+    t.integer "meeting_id"
+    t.integer "user_id"
+    t.index ["meeting_id"], name: "index_meetings_users_on_meeting_id", using: :btree
+    t.index ["user_id"], name: "index_meetings_users_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|

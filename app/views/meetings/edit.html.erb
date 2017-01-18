@@ -1,0 +1,7 @@
+<div class="container mt-3">
+<h1>Editing Meeting</h1>
+
+<%= render 'form', meeting: @meeting ,  attendeeslist: @attendeeslist %>
+
+<%= link_to 'Back', @isforproject ?   project_path(@meeting.project.id,:anchor => 'meeting') : meetings_path%>
+</div>

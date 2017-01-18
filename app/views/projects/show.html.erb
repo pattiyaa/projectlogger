@@ -9,7 +9,6 @@
       <h2>
         <%= @project.name %>
       </h2>
-
       <p>
         <%= @project.detail %>
       </p>
@@ -17,7 +16,9 @@
     <div class="row small">
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div>
-          <strong>Duration:</strong>  <%= @project.start_date.strftime(t('date.formats.default')) %> to <%= @project.end_date.strftime(t('date.formats.default'))  %>
+          <strong>Duration:</strong>  
+          <%= @project.start_date.strftime(t('date.formats.default')) %> to <%= @project.end_date.strftime(t('date.formats.default'))  %>
+         
         </div>
         <div>
           <strong>Project manager:</strong> <%= @project.projectmanager.name if @project.projectmanager.present?%>
@@ -42,10 +43,19 @@
     </div>
   </header>
   <div class="three">
-    <h4>Members</h4>
+    <h2>Members</h2>
     <%= render  'colleagues/list'  ,colleagues: @project.users%>
   </div>
-
-
-  
 </div>
+<section id="meeting" class="two">
+    <div class="container">
+    <h4>Meeting</h4> <div class="pull-right"> <%= link_to 'new meeting',new_project_meeting_path(project_id: @project.id)  %></div>
+    <%= render   'meetings/list'  ,meetings: @project.meetings %>
+    </div>
+</section>
+<section id="log" class="three">
+  <div class="container">
+    <h4>Log</h4> <div class="pull-right"> <%= link_to 'new log',new_project_log_path(project_id: @project.id)  %></div>
+    <%= render   'logs/list'  ,logs: @project.logs %>
+  </div>
+</section>

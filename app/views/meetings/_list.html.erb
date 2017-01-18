@@ -1,0 +1,38 @@
+<div class="table-responsive">
+<table class="table table-hover table-sm">
+
+
+  <tbody>
+    <% meetings.each do |meeting| %>
+      <tr>
+        <td class="col-sm-4"><small><%= meeting.meetingdate.strftime(t('date.formats.default')) if meeting.meetingdate.present? %></small></td>
+       
+        <td class="col-sm-8">
+          <div class="meeting inlist">
+            <h4 ><%= meeting.title %></h4>
+           <!--  <%= meeting.data.html_safe %> -->
+            <p><small> 
+              <strong> Log person: </strong> 
+              <%= meeting.logperson.name if  meeting.logperson.present?%> <br/>
+              <strong>Attendee: </strong>
+              <% meeting.users.each do |user| %>
+                <br/> &nbsp<%= user.name %> 
+                <% end%>
+            </small></p>
+            
+            <div class="pull-right">
+              <%= link_to 'Show', project_meeting_path(project_id: @project.id, id: meeting.id ),data: { modal: true} %>
+               <% if meeting.logperson.present? && meeting.logperson == current_user %>
+                <%= link_to 'Edit', edit_project_meeting_path(project_id: @project.id,id: meeting.id) %>
+                <%= link_to 'Destroy', project_meeting_path(project_id: @project.id, id: meeting.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%end%>
+              
+            </div>
+          </div>
+        </td>
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

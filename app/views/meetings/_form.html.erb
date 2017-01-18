@@ -1,0 +1,15 @@
+<%= semantic_form_for @meeting do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :project %>
+    <%= f.input :meetingdate,:as => :date_picker, label: 'Date' %>
+     <%= f.input :users,as: :select,:input_html => { :multiple => true }, label: 'Attendees',:collection => attendeeslist%>
+    <%= f.input :title %>
+    <%= f.input :data , :as => :ckeditor%>
+    <%= f.input :logperson, label: 'Log person' %>
+    
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

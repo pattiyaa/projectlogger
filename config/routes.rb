@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   
 
+  resources :logs
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :meetings
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users , :controllers => { 
   	:registrations => "users/registrations"
   }
-  resources :projects
+  resources :projects do
+    resources :meetings
+    resources :logs
+  end
   resources :clients
   resources :colleagues
  

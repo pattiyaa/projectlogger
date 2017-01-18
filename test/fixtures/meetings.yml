@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meetingdate: MyString
+  title: MyString
+  data: MyString
+  logger: one
+  project: one
+
+two:
+  meetingdate: MyString
+  title: MyString
+  data: MyString
+  logger: two
+  project: two

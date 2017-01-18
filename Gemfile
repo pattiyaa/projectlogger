@@ -17,7 +17,10 @@ gem 'bower'
 #for flexible authentication
 gem 'devise'
 # bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'bootstrap', '4.0.0.alpha5'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 gem 'font-awesome-sass', '~> 4.7.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -62,6 +65,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#bloc editor
+gem 'ckeditor', '~> 4.1'
 #image uploader
 gem 'carrierwave'
 gem 'mini_magick'

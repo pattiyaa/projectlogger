@@ -1,0 +1,39 @@
+/*---------------File upload----------*/
+#drop_zone {
+display:block;
+border: 2px dashed #bbb;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding: 25px;
+text-align: center;
+font: 20pt bold 'Vollkorn';
+color: #bbb;
+width:100%;
+}
+div.thumb {
+display:block;
+float:left;
+overflow: hidden;
+position: relative;
+padding: 10px;
+}
+div.thumb a{
+display: block;
+position: absolute;
+right: 0;
+top: 0;
+color:#db3236;
+
+}
+div.thumb img{
+height: 75px;
+border: 1px solid #000;
+margin: 10px 5px 0 0;
+}
+
+div.image-preview img.image-preview{
+    height: 275px;
+    padding: 8px;
+    background-color: #ffffff;
+}

@@ -1,0 +1,49 @@
+<div class="table-responsive ">
+<table class="table table-hover table-sm">
+  
+
+  <tbody>
+    <% logs.each do |log| %>
+      <tr>
+        <td class="col-sm-3">
+        <div>
+          <span class="image avatar48">
+              <%= link_to edit_user_registration_path, :class=>"avatar48" do%>
+            <div class="user profile" style="background-image:url('<%= log.logperson.image.url if log.logperson.image.present?%>')"></div>
+            <%end%>
+          </span>
+          <h1 id="title"><%=  log.logperson.name %></h1>
+          <p><small><%=  log.logperson.title %></small><br/>
+             <small><small><%= log.logdate.strftime(t('time.formats.default')) if log.logdate.present? %></small></small>
+          </p>
+        </div> 
+       
+        </td>
+       
+        <td class="col-sm-9">
+          <div class="log inlist ">
+           
+            <%= log.data.html_safe %> 
+            
+            <div class="thumb">
+        
+              <% log.pictures.each do |pic| %>
+              <%= cl_image_tag(pic.url, :crop=>"thumb")%>
+              <% end%>
+            </div>
+            <div class="pull-right">
+              <%= link_to 'Show', project_log_path(project_id: @project.id, id: log.id ),data: { modal: true} %>
+               <% if log.logperson.present? && log.logperson == current_user %>
+                <%= link_to 'Edit', edit_project_log_path(project_id: @project.id,id: log.id) %>
+                <%= link_to 'Destroy', project_log_path(project_id: @project.id, id: log.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%end%>
+              
+            </div>
+          </div>
+        </td>
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

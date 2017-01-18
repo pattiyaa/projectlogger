@@ -4,7 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-//= require jquery.min
+
 //= require jquery.scrolly.min
 //= require jquery.scrollzer.min
 //= require skel.min
@@ -25,11 +25,11 @@
 			$body = $('body');
 
 		// Disable animations/transitions until the page has loaded.
-			// $body.addClass('is-loading');
+			$body.addClass('is-loading');
 
-			// $window.on('load', function() {
-			// 	$body.removeClass('is-loading');
-			// });
+			$window.on('load', function() {
+				$body.removeClass('is-loading');
+			});
 
 		// CSS polyfills (IE<9).
 			if (skel.vars.IEVersion < 9)
@@ -78,14 +78,16 @@
 						var t = $(this)[0];
 						
 						if (t.baseURI == t.href){
-							$(t).addClass('active');
+							$(t).addClass('active')
+							.addClass('scrollzer-locked');
+						}else{
+							$(t).removeClass('active')
+								.addClass('scrollzer-locked');
 						}
 						
 					});
 				
 				var $location  = $(location)[0]
-				
-				
 				if ($location.pathname == '/' && $location.hash ==''){
 					$($nav_a[0]).addClass('active');
 				}

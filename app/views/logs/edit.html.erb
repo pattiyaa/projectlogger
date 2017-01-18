@@ -1,0 +1,8 @@
+<div class="container mt-3">
+<h1>Editing Log</h1>
+
+<%= render 'form', log: @log %>
+
+
+<%= link_to 'Back', @isforproject ?   project_path(@log.project.id,:anchor => 'log') : logs_path%>
+</div>

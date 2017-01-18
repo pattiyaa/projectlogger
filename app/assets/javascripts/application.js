@@ -12,10 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require tether
 //= require turbolinks
-
+//= require bootstrap
+//= require bootstrap-sprockets
+//= require modals
+//= require ckeditor/init
+//= require ckeditor/config
+//= require ckeditor/ckeditor
 //= require main
 //= require input/file_input
+//= require input/filesupload_input
 //= require input/toggleswitch_input
 //= require flatpickr/dist/flatpickr.min

@@ -1,0 +1,31 @@
+<% content_for :title,  @meeting.title  %>
+
+<div>
+  <small>
+    <strong>Date:</strong>
+    <%= @meeting.meetingdate.strftime(t('date.formats.default'))  if @meeting.meetingdate.present?  %>
+  </small>
+</div>
+<div>
+  <small>
+    <strong>Logger:</strong>
+    <%= @meeting.logperson.name if @meeting.logperson.present? %>
+  </small>
+</div>
+
+
+
+
+<strong>Log data:</strong>
+<div class="container">
+  <small>
+    <%= @meeting.data.html_safe %>
+  </small>
+</div>
+
+
+
+
+
+
+

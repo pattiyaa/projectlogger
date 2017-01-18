@@ -39,12 +39,17 @@
  /*// Utility classes*/
 @import "bootstrap/utilities";
 
+// Components w/ JavaScript
+@import "bootstrap/modal";
+
 
 @import "formtastic";
 @import "flatpickr/dist/flatpickr.min";
 @import "toggleswitch";
+@import "filesupload";
 @import "main";
 @import "home";
 @import "input";
 @import "users";
 @import "projects";
+@import "meetings";

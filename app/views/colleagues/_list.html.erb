@@ -3,7 +3,7 @@
 		<% colleagues.each do |colleague| %>
 		 <div class="card colleague col-xs-12 col-sm-6 col-md-4">
 		    <div class = "image featured"  >
-            <img class="card-img-top img-fluid"  src=<%= colleague.image.url%> alt="<%= colleague.name%>" />
+            <img class="card-img-top img-fluid"  src=<%= colleague.image.url if colleague.image.present?%> alt="<%= colleague.name%>" />
             </div>
             <div class="card-block">
             	

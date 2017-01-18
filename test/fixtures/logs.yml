@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  logdate: 2017-01-13 09:37:42
+  data: MyString
+  logperson: one
+  project: one
+
+two:
+  logdate: 2017-01-13 09:37:42
+  data: MyString
+  logperson: two
+  project: two

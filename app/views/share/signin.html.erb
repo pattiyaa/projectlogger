@@ -1,5 +1,13 @@
 <% if user_signed_in? && !current_user.blank? %>
-<span class="image avatar48"><%= link_to cl_image_tag(current_user.image, :gravity=>"north", :width=>115, :height=>115, :crop=>"thumb"), edit_user_registration_path %></span>
+
+
+<span class="image avatar48">
+    <%= link_to edit_user_registration_path, :class=>"avatar48" do%>
+	<div class="user profile" style="background-image:url('<%= current_user.image.url if current_user.image.present?%>')"></div>
+	<%end%>
+</span>
+
+
 <h1 id="title"><%=  current_user.name %></h1>
 <p><%=  current_user.title %></p>
 <% else %>
