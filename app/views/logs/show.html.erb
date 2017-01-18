@@ -1,5 +1,8 @@
 <% content_for :title do %>
-<span class="image avatar48"><%=  cl_image_tag(@log.logperson.image, :gravity=>"north", :width=>115, :height=>115, :crop=>"thumb") %></span>
+
+<span class="image avatar48">
+	<div class="user profile" style="background-image:url('<%= @log.logperson.image.url if @log.logperson.image.present?%>')"></div>
+</span>
 <%=  @log.logperson.name if @log.logperson.present?  %><br/>
 <%= @log.logdate.strftime(t('time.formats.default')) %>
 <% end%>

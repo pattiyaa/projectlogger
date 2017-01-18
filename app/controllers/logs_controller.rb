@@ -80,17 +80,19 @@ class LogsController < InheritedResources::Base
     end
     def updatepicture
       @pics=[]
-      pictures.each do |pic|
-        begin
-          if eval(pic)[:id].present?
-            @pics.push(Ckeditor::Picture.find(eval(pic)[:id]))
+      if pictures.present?
+        pictures.each do |pic|
+          begin
+            if eval(pic)[:id].present?
+              @pics.push(Ckeditor::Picture.find(eval(pic)[:id]))
+            end
+          rescue
+            @pics.push(Ckeditor::Picture.new(data: pic))
           end
-        rescue
-          @pics.push(Ckeditor::Picture.new(data: pic))
         end
+        @log.pictures = @pics 
+        @log.save
       end
-      @log.pictures = @pics 
-      @log.save
     end
     def resolve_layout
       case action_name
