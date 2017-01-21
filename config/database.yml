@@ -24,6 +24,15 @@ default: &default
 development:
   <<: *default
   database: projectlog_development
+# development:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: dc41nl48i7or15
+#   pool: 5432
+#   username: thvxnkspbhjdlf    #-> *** data from heroku's postgres user details page
+#   password: a88f875dd7ed5a124980ba2c563ec9246a7218077d6490181597af828c34342f
+#   host: ec2-54-228-212-74.eu-west-1.compute.amazonaws.com
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

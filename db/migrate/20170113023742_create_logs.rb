@@ -1,6 +1,6 @@
 class CreateLogs < ActiveRecord::Migration[5.0]
   def self.up
-  	drop_table :logs
+  	
     create_table :logs do |t|
       t.datetime :logdate
       t.string :data
