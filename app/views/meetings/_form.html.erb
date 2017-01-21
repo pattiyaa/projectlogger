@@ -4,7 +4,7 @@
     <%= f.input :meetingdate,:as => :date_picker, label: 'Date' %>
      <%= f.input :users,as: :select,:input_html => { :multiple => true }, label: 'Attendees',:collection => attendeeslist%>
     <%= f.input :title %>
-    <%= f.input :data , :as => :ckeditor%>
+    <%= f.input :data , :as => :ckeditor,input_html: {:ckeditor => {:toolbar => 'mini'}}%>
     <%= f.input :logperson, label: 'Log person' %>
     
   <% end %>
