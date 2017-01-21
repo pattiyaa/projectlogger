@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
     
     @projects = Project.where(projectmanager: current_user.id)
     
-    @paticipatedprojects = Project.includes(:users).where(users: {id: current_user}, active: true)
+    # @paticipatedprojects = Project.includes(:users).where(users: {id: current_user}, active: true)
+    @paticipatedprojects =  Project.find(Project.includes(:users).where(users: {id: current_user}, active: true).ids)
+
   end
 
   # GET /projects/1
