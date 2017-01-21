@@ -20,6 +20,7 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require ckeditor/ckeditor
+//= require_tree .
 //= require main
 //= require input/file_input
 //= require input/filesupload_input
