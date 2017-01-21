@@ -64,7 +64,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.name = params[:user][:name]
     @user.title = params[:user][:title]
     @user.telephone = params[:user][:telephone]
-    @user.image = Ckeditor::Picture.new(data: params[:user][:image])
+    if params[:user][:image].present?
+     @user.image = Ckeditor::Picture.new(data: params[:user][:image])
+    end
     @user.save
   end
 end
