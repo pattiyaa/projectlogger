@@ -11,4 +11,3 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( ckeditor/filebrowser/images/gal_del.png )
 Rails.application.config.assets.precompile += %w(ckeditor/config.js)
-Rails.application.config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
